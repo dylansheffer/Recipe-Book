@@ -1,0 +1,63 @@
+enum Permission {
+  ADMIN
+  USER
+}
+
+type User {
+  id: ID! @id
+  name: String!
+  email: String!
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission] @scalarList(strategy:RELATION)
+  shoppingList: [ShoppingListItem]!
+  selectedRecipes: [SelectedRecipe]!
+}
+
+type Unit {
+  id: ID! @id
+  name: String! @unique
+  abbreviation: String! @unique
+}
+
+type Ingredient {
+  id: ID! @id
+  name: String!
+  quantity: Float!
+  unit: Unit!
+  notes: String
+}
+
+type Tag {
+  id: ID! @id
+  name: String! @unique
+}
+
+type Recipe {
+  id: ID! @id
+  title: String!
+  tags: [Tag]!
+  source: String
+  link: String
+  pageNumber: String
+  image: String
+  ingredients: [Ingredient!]!
+  instructions: String!
+  favorite: Boolean! @default(value: false)
+  featured: Boolean! @default(value: false)
+}
+
+type SelectedRecipe {
+  id: ID! @id
+  user: User!
+  recipe: Recipe!
+}
+
+type ShoppingListItem {
+  id: ID! @id
+  user: User!
+  ingredient: Ingredient! @unique
+  quantity: Float!
+  unit: Unit!
+}

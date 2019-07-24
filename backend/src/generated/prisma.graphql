@@ -1,0 +1,1561 @@
+type AggregateIngredient {
+  count: Int!
+}
+
+type AggregateRecipe {
+  count: Int!
+}
+
+type AggregateSelectedRecipe {
+  count: Int!
+}
+
+type AggregateShoppingListItem {
+  count: Int!
+}
+
+type AggregateTag {
+  count: Int!
+}
+
+type AggregateUnit {
+  count: Int!
+}
+
+type AggregateUser {
+  count: Int!
+}
+
+type BatchPayload {
+  count: Long!
+}
+
+type Ingredient {
+  id: ID!
+  name: String!
+  quantity: Float!
+  unit: Unit!
+  notes: String
+}
+
+type IngredientConnection {
+  pageInfo: PageInfo!
+  edges: [IngredientEdge]!
+  aggregate: AggregateIngredient!
+}
+
+input IngredientCreateInput {
+  id: ID
+  name: String!
+  quantity: Float!
+  unit: UnitCreateOneInput!
+  notes: String
+}
+
+input IngredientCreateManyInput {
+  create: [IngredientCreateInput!]
+  connect: [IngredientWhereUniqueInput!]
+}
+
+input IngredientCreateOneInput {
+  create: IngredientCreateInput
+  connect: IngredientWhereUniqueInput
+}
+
+type IngredientEdge {
+  node: Ingredient!
+  cursor: String!
+}
+
+enum IngredientOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  quantity_ASC
+  quantity_DESC
+  notes_ASC
+  notes_DESC
+}
+
+type IngredientPreviousValues {
+  id: ID!
+  name: String!
+  quantity: Float!
+  notes: String
+}
+
+input IngredientScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  quantity: Float
+  quantity_not: Float
+  quantity_in: [Float!]
+  quantity_not_in: [Float!]
+  quantity_lt: Float
+  quantity_lte: Float
+  quantity_gt: Float
+  quantity_gte: Float
+  notes: String
+  notes_not: String
+  notes_in: [String!]
+  notes_not_in: [String!]
+  notes_lt: String
+  notes_lte: String
+  notes_gt: String
+  notes_gte: String
+  notes_contains: String
+  notes_not_contains: String
+  notes_starts_with: String
+  notes_not_starts_with: String
+  notes_ends_with: String
+  notes_not_ends_with: String
+  AND: [IngredientScalarWhereInput!]
+  OR: [IngredientScalarWhereInput!]
+  NOT: [IngredientScalarWhereInput!]
+}
+
+type IngredientSubscriptionPayload {
+  mutation: MutationType!
+  node: Ingredient
+  updatedFields: [String!]
+  previousValues: IngredientPreviousValues
+}
+
+input IngredientSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: IngredientWhereInput
+  AND: [IngredientSubscriptionWhereInput!]
+  OR: [IngredientSubscriptionWhereInput!]
+  NOT: [IngredientSubscriptionWhereInput!]
+}
+
+input IngredientUpdateDataInput {
+  name: String
+  quantity: Float
+  unit: UnitUpdateOneRequiredInput
+  notes: String
+}
+
+input IngredientUpdateInput {
+  name: String
+  quantity: Float
+  unit: UnitUpdateOneRequiredInput
+  notes: String
+}
+
+input IngredientUpdateManyDataInput {
+  name: String
+  quantity: Float
+  notes: String
+}
+
+input IngredientUpdateManyInput {
+  create: [IngredientCreateInput!]
+  update: [IngredientUpdateWithWhereUniqueNestedInput!]
+  upsert: [IngredientUpsertWithWhereUniqueNestedInput!]
+  delete: [IngredientWhereUniqueInput!]
+  connect: [IngredientWhereUniqueInput!]
+  set: [IngredientWhereUniqueInput!]
+  disconnect: [IngredientWhereUniqueInput!]
+  deleteMany: [IngredientScalarWhereInput!]
+  updateMany: [IngredientUpdateManyWithWhereNestedInput!]
+}
+
+input IngredientUpdateManyMutationInput {
+  name: String
+  quantity: Float
+  notes: String
+}
+
+input IngredientUpdateManyWithWhereNestedInput {
+  where: IngredientScalarWhereInput!
+  data: IngredientUpdateManyDataInput!
+}
+
+input IngredientUpdateOneRequiredInput {
+  create: IngredientCreateInput
+  update: IngredientUpdateDataInput
+  upsert: IngredientUpsertNestedInput
+  connect: IngredientWhereUniqueInput
+}
+
+input IngredientUpdateWithWhereUniqueNestedInput {
+  where: IngredientWhereUniqueInput!
+  data: IngredientUpdateDataInput!
+}
+
+input IngredientUpsertNestedInput {
+  update: IngredientUpdateDataInput!
+  create: IngredientCreateInput!
+}
+
+input IngredientUpsertWithWhereUniqueNestedInput {
+  where: IngredientWhereUniqueInput!
+  update: IngredientUpdateDataInput!
+  create: IngredientCreateInput!
+}
+
+input IngredientWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  quantity: Float
+  quantity_not: Float
+  quantity_in: [Float!]
+  quantity_not_in: [Float!]
+  quantity_lt: Float
+  quantity_lte: Float
+  quantity_gt: Float
+  quantity_gte: Float
+  unit: UnitWhereInput
+  notes: String
+  notes_not: String
+  notes_in: [String!]
+  notes_not_in: [String!]
+  notes_lt: String
+  notes_lte: String
+  notes_gt: String
+  notes_gte: String
+  notes_contains: String
+  notes_not_contains: String
+  notes_starts_with: String
+  notes_not_starts_with: String
+  notes_ends_with: String
+  notes_not_ends_with: String
+  AND: [IngredientWhereInput!]
+  OR: [IngredientWhereInput!]
+  NOT: [IngredientWhereInput!]
+}
+
+input IngredientWhereUniqueInput {
+  id: ID
+}
+
+scalar Long
+
+type Mutation {
+  createIngredient(data: IngredientCreateInput!): Ingredient!
+  updateIngredient(data: IngredientUpdateInput!, where: IngredientWhereUniqueInput!): Ingredient
+  updateManyIngredients(data: IngredientUpdateManyMutationInput!, where: IngredientWhereInput): BatchPayload!
+  upsertIngredient(where: IngredientWhereUniqueInput!, create: IngredientCreateInput!, update: IngredientUpdateInput!): Ingredient!
+  deleteIngredient(where: IngredientWhereUniqueInput!): Ingredient
+  deleteManyIngredients(where: IngredientWhereInput): BatchPayload!
+  createRecipe(data: RecipeCreateInput!): Recipe!
+  updateRecipe(data: RecipeUpdateInput!, where: RecipeWhereUniqueInput!): Recipe
+  updateManyRecipes(data: RecipeUpdateManyMutationInput!, where: RecipeWhereInput): BatchPayload!
+  upsertRecipe(where: RecipeWhereUniqueInput!, create: RecipeCreateInput!, update: RecipeUpdateInput!): Recipe!
+  deleteRecipe(where: RecipeWhereUniqueInput!): Recipe
+  deleteManyRecipes(where: RecipeWhereInput): BatchPayload!
+  createSelectedRecipe(data: SelectedRecipeCreateInput!): SelectedRecipe!
+  updateSelectedRecipe(data: SelectedRecipeUpdateInput!, where: SelectedRecipeWhereUniqueInput!): SelectedRecipe
+  upsertSelectedRecipe(where: SelectedRecipeWhereUniqueInput!, create: SelectedRecipeCreateInput!, update: SelectedRecipeUpdateInput!): SelectedRecipe!
+  deleteSelectedRecipe(where: SelectedRecipeWhereUniqueInput!): SelectedRecipe
+  deleteManySelectedRecipes(where: SelectedRecipeWhereInput): BatchPayload!
+  createShoppingListItem(data: ShoppingListItemCreateInput!): ShoppingListItem!
+  updateShoppingListItem(data: ShoppingListItemUpdateInput!, where: ShoppingListItemWhereUniqueInput!): ShoppingListItem
+  updateManyShoppingListItems(data: ShoppingListItemUpdateManyMutationInput!, where: ShoppingListItemWhereInput): BatchPayload!
+  upsertShoppingListItem(where: ShoppingListItemWhereUniqueInput!, create: ShoppingListItemCreateInput!, update: ShoppingListItemUpdateInput!): ShoppingListItem!
+  deleteShoppingListItem(where: ShoppingListItemWhereUniqueInput!): ShoppingListItem
+  deleteManyShoppingListItems(where: ShoppingListItemWhereInput): BatchPayload!
+  createTag(data: TagCreateInput!): Tag!
+  updateTag(data: TagUpdateInput!, where: TagWhereUniqueInput!): Tag
+  updateManyTags(data: TagUpdateManyMutationInput!, where: TagWhereInput): BatchPayload!
+  upsertTag(where: TagWhereUniqueInput!, create: TagCreateInput!, update: TagUpdateInput!): Tag!
+  deleteTag(where: TagWhereUniqueInput!): Tag
+  deleteManyTags(where: TagWhereInput): BatchPayload!
+  createUnit(data: UnitCreateInput!): Unit!
+  updateUnit(data: UnitUpdateInput!, where: UnitWhereUniqueInput!): Unit
+  updateManyUnits(data: UnitUpdateManyMutationInput!, where: UnitWhereInput): BatchPayload!
+  upsertUnit(where: UnitWhereUniqueInput!, create: UnitCreateInput!, update: UnitUpdateInput!): Unit!
+  deleteUnit(where: UnitWhereUniqueInput!): Unit
+  deleteManyUnits(where: UnitWhereInput): BatchPayload!
+  createUser(data: UserCreateInput!): User!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  deleteUser(where: UserWhereUniqueInput!): User
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+enum Permission {
+  ADMIN
+  USER
+}
+
+type Query {
+  ingredient(where: IngredientWhereUniqueInput!): Ingredient
+  ingredients(where: IngredientWhereInput, orderBy: IngredientOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Ingredient]!
+  ingredientsConnection(where: IngredientWhereInput, orderBy: IngredientOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): IngredientConnection!
+  recipe(where: RecipeWhereUniqueInput!): Recipe
+  recipes(where: RecipeWhereInput, orderBy: RecipeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Recipe]!
+  recipesConnection(where: RecipeWhereInput, orderBy: RecipeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): RecipeConnection!
+  selectedRecipe(where: SelectedRecipeWhereUniqueInput!): SelectedRecipe
+  selectedRecipes(where: SelectedRecipeWhereInput, orderBy: SelectedRecipeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [SelectedRecipe]!
+  selectedRecipesConnection(where: SelectedRecipeWhereInput, orderBy: SelectedRecipeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SelectedRecipeConnection!
+  shoppingListItem(where: ShoppingListItemWhereUniqueInput!): ShoppingListItem
+  shoppingListItems(where: ShoppingListItemWhereInput, orderBy: ShoppingListItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ShoppingListItem]!
+  shoppingListItemsConnection(where: ShoppingListItemWhereInput, orderBy: ShoppingListItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ShoppingListItemConnection!
+  tag(where: TagWhereUniqueInput!): Tag
+  tags(where: TagWhereInput, orderBy: TagOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Tag]!
+  tagsConnection(where: TagWhereInput, orderBy: TagOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TagConnection!
+  unit(where: UnitWhereUniqueInput!): Unit
+  units(where: UnitWhereInput, orderBy: UnitOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Unit]!
+  unitsConnection(where: UnitWhereInput, orderBy: UnitOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UnitConnection!
+  user(where: UserWhereUniqueInput!): User
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
+  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  node(id: ID!): Node
+}
+
+type Recipe {
+  id: ID!
+  title: String!
+  tags(where: TagWhereInput, orderBy: TagOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Tag!]
+  source: String
+  link: String
+  pageNumber: String
+  image: String
+  ingredients(where: IngredientWhereInput, orderBy: IngredientOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Ingredient!]
+  instructions: String!
+  favorite: Boolean!
+  featured: Boolean!
+}
+
+type RecipeConnection {
+  pageInfo: PageInfo!
+  edges: [RecipeEdge]!
+  aggregate: AggregateRecipe!
+}
+
+input RecipeCreateInput {
+  id: ID
+  title: String!
+  tags: TagCreateManyInput
+  source: String
+  link: String
+  pageNumber: String
+  image: String
+  ingredients: IngredientCreateManyInput
+  instructions: String!
+  favorite: Boolean
+  featured: Boolean
+}
+
+input RecipeCreateOneInput {
+  create: RecipeCreateInput
+  connect: RecipeWhereUniqueInput
+}
+
+type RecipeEdge {
+  node: Recipe!
+  cursor: String!
+}
+
+enum RecipeOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  source_ASC
+  source_DESC
+  link_ASC
+  link_DESC
+  pageNumber_ASC
+  pageNumber_DESC
+  image_ASC
+  image_DESC
+  instructions_ASC
+  instructions_DESC
+  favorite_ASC
+  favorite_DESC
+  featured_ASC
+  featured_DESC
+}
+
+type RecipePreviousValues {
+  id: ID!
+  title: String!
+  source: String
+  link: String
+  pageNumber: String
+  image: String
+  instructions: String!
+  favorite: Boolean!
+  featured: Boolean!
+}
+
+type RecipeSubscriptionPayload {
+  mutation: MutationType!
+  node: Recipe
+  updatedFields: [String!]
+  previousValues: RecipePreviousValues
+}
+
+input RecipeSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: RecipeWhereInput
+  AND: [RecipeSubscriptionWhereInput!]
+  OR: [RecipeSubscriptionWhereInput!]
+  NOT: [RecipeSubscriptionWhereInput!]
+}
+
+input RecipeUpdateDataInput {
+  title: String
+  tags: TagUpdateManyInput
+  source: String
+  link: String
+  pageNumber: String
+  image: String
+  ingredients: IngredientUpdateManyInput
+  instructions: String
+  favorite: Boolean
+  featured: Boolean
+}
+
+input RecipeUpdateInput {
+  title: String
+  tags: TagUpdateManyInput
+  source: String
+  link: String
+  pageNumber: String
+  image: String
+  ingredients: IngredientUpdateManyInput
+  instructions: String
+  favorite: Boolean
+  featured: Boolean
+}
+
+input RecipeUpdateManyMutationInput {
+  title: String
+  source: String
+  link: String
+  pageNumber: String
+  image: String
+  instructions: String
+  favorite: Boolean
+  featured: Boolean
+}
+
+input RecipeUpdateOneRequiredInput {
+  create: RecipeCreateInput
+  update: RecipeUpdateDataInput
+  upsert: RecipeUpsertNestedInput
+  connect: RecipeWhereUniqueInput
+}
+
+input RecipeUpsertNestedInput {
+  update: RecipeUpdateDataInput!
+  create: RecipeCreateInput!
+}
+
+input RecipeWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  tags_every: TagWhereInput
+  tags_some: TagWhereInput
+  tags_none: TagWhereInput
+  source: String
+  source_not: String
+  source_in: [String!]
+  source_not_in: [String!]
+  source_lt: String
+  source_lte: String
+  source_gt: String
+  source_gte: String
+  source_contains: String
+  source_not_contains: String
+  source_starts_with: String
+  source_not_starts_with: String
+  source_ends_with: String
+  source_not_ends_with: String
+  link: String
+  link_not: String
+  link_in: [String!]
+  link_not_in: [String!]
+  link_lt: String
+  link_lte: String
+  link_gt: String
+  link_gte: String
+  link_contains: String
+  link_not_contains: String
+  link_starts_with: String
+  link_not_starts_with: String
+  link_ends_with: String
+  link_not_ends_with: String
+  pageNumber: String
+  pageNumber_not: String
+  pageNumber_in: [String!]
+  pageNumber_not_in: [String!]
+  pageNumber_lt: String
+  pageNumber_lte: String
+  pageNumber_gt: String
+  pageNumber_gte: String
+  pageNumber_contains: String
+  pageNumber_not_contains: String
+  pageNumber_starts_with: String
+  pageNumber_not_starts_with: String
+  pageNumber_ends_with: String
+  pageNumber_not_ends_with: String
+  image: String
+  image_not: String
+  image_in: [String!]
+  image_not_in: [String!]
+  image_lt: String
+  image_lte: String
+  image_gt: String
+  image_gte: String
+  image_contains: String
+  image_not_contains: String
+  image_starts_with: String
+  image_not_starts_with: String
+  image_ends_with: String
+  image_not_ends_with: String
+  ingredients_every: IngredientWhereInput
+  ingredients_some: IngredientWhereInput
+  ingredients_none: IngredientWhereInput
+  instructions: String
+  instructions_not: String
+  instructions_in: [String!]
+  instructions_not_in: [String!]
+  instructions_lt: String
+  instructions_lte: String
+  instructions_gt: String
+  instructions_gte: String
+  instructions_contains: String
+  instructions_not_contains: String
+  instructions_starts_with: String
+  instructions_not_starts_with: String
+  instructions_ends_with: String
+  instructions_not_ends_with: String
+  favorite: Boolean
+  favorite_not: Boolean
+  featured: Boolean
+  featured_not: Boolean
+  AND: [RecipeWhereInput!]
+  OR: [RecipeWhereInput!]
+  NOT: [RecipeWhereInput!]
+}
+
+input RecipeWhereUniqueInput {
+  id: ID
+}
+
+type SelectedRecipe {
+  id: ID!
+  user: User!
+  recipe: Recipe!
+}
+
+type SelectedRecipeConnection {
+  pageInfo: PageInfo!
+  edges: [SelectedRecipeEdge]!
+  aggregate: AggregateSelectedRecipe!
+}
+
+input SelectedRecipeCreateInput {
+  id: ID
+  user: UserCreateOneWithoutSelectedRecipesInput!
+  recipe: RecipeCreateOneInput!
+}
+
+input SelectedRecipeCreateManyWithoutUserInput {
+  create: [SelectedRecipeCreateWithoutUserInput!]
+  connect: [SelectedRecipeWhereUniqueInput!]
+}
+
+input SelectedRecipeCreateWithoutUserInput {
+  id: ID
+  recipe: RecipeCreateOneInput!
+}
+
+type SelectedRecipeEdge {
+  node: SelectedRecipe!
+  cursor: String!
+}
+
+enum SelectedRecipeOrderByInput {
+  id_ASC
+  id_DESC
+}
+
+type SelectedRecipePreviousValues {
+  id: ID!
+}
+
+input SelectedRecipeScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  AND: [SelectedRecipeScalarWhereInput!]
+  OR: [SelectedRecipeScalarWhereInput!]
+  NOT: [SelectedRecipeScalarWhereInput!]
+}
+
+type SelectedRecipeSubscriptionPayload {
+  mutation: MutationType!
+  node: SelectedRecipe
+  updatedFields: [String!]
+  previousValues: SelectedRecipePreviousValues
+}
+
+input SelectedRecipeSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: SelectedRecipeWhereInput
+  AND: [SelectedRecipeSubscriptionWhereInput!]
+  OR: [SelectedRecipeSubscriptionWhereInput!]
+  NOT: [SelectedRecipeSubscriptionWhereInput!]
+}
+
+input SelectedRecipeUpdateInput {
+  user: UserUpdateOneRequiredWithoutSelectedRecipesInput
+  recipe: RecipeUpdateOneRequiredInput
+}
+
+input SelectedRecipeUpdateManyWithoutUserInput {
+  create: [SelectedRecipeCreateWithoutUserInput!]
+  delete: [SelectedRecipeWhereUniqueInput!]
+  connect: [SelectedRecipeWhereUniqueInput!]
+  set: [SelectedRecipeWhereUniqueInput!]
+  disconnect: [SelectedRecipeWhereUniqueInput!]
+  update: [SelectedRecipeUpdateWithWhereUniqueWithoutUserInput!]
+  upsert: [SelectedRecipeUpsertWithWhereUniqueWithoutUserInput!]
+  deleteMany: [SelectedRecipeScalarWhereInput!]
+}
+
+input SelectedRecipeUpdateWithoutUserDataInput {
+  recipe: RecipeUpdateOneRequiredInput
+}
+
+input SelectedRecipeUpdateWithWhereUniqueWithoutUserInput {
+  where: SelectedRecipeWhereUniqueInput!
+  data: SelectedRecipeUpdateWithoutUserDataInput!
+}
+
+input SelectedRecipeUpsertWithWhereUniqueWithoutUserInput {
+  where: SelectedRecipeWhereUniqueInput!
+  update: SelectedRecipeUpdateWithoutUserDataInput!
+  create: SelectedRecipeCreateWithoutUserInput!
+}
+
+input SelectedRecipeWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  user: UserWhereInput
+  recipe: RecipeWhereInput
+  AND: [SelectedRecipeWhereInput!]
+  OR: [SelectedRecipeWhereInput!]
+  NOT: [SelectedRecipeWhereInput!]
+}
+
+input SelectedRecipeWhereUniqueInput {
+  id: ID
+}
+
+type ShoppingListItem {
+  id: ID!
+  user: User!
+  ingredient: Ingredient!
+  quantity: Float!
+  unit: Unit!
+}
+
+type ShoppingListItemConnection {
+  pageInfo: PageInfo!
+  edges: [ShoppingListItemEdge]!
+  aggregate: AggregateShoppingListItem!
+}
+
+input ShoppingListItemCreateInput {
+  id: ID
+  user: UserCreateOneWithoutShoppingListInput!
+  ingredient: IngredientCreateOneInput!
+  quantity: Float!
+  unit: UnitCreateOneInput!
+}
+
+input ShoppingListItemCreateManyWithoutUserInput {
+  create: [ShoppingListItemCreateWithoutUserInput!]
+  connect: [ShoppingListItemWhereUniqueInput!]
+}
+
+input ShoppingListItemCreateWithoutUserInput {
+  id: ID
+  ingredient: IngredientCreateOneInput!
+  quantity: Float!
+  unit: UnitCreateOneInput!
+}
+
+type ShoppingListItemEdge {
+  node: ShoppingListItem!
+  cursor: String!
+}
+
+enum ShoppingListItemOrderByInput {
+  id_ASC
+  id_DESC
+  quantity_ASC
+  quantity_DESC
+}
+
+type ShoppingListItemPreviousValues {
+  id: ID!
+  quantity: Float!
+}
+
+input ShoppingListItemScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  quantity: Float
+  quantity_not: Float
+  quantity_in: [Float!]
+  quantity_not_in: [Float!]
+  quantity_lt: Float
+  quantity_lte: Float
+  quantity_gt: Float
+  quantity_gte: Float
+  AND: [ShoppingListItemScalarWhereInput!]
+  OR: [ShoppingListItemScalarWhereInput!]
+  NOT: [ShoppingListItemScalarWhereInput!]
+}
+
+type ShoppingListItemSubscriptionPayload {
+  mutation: MutationType!
+  node: ShoppingListItem
+  updatedFields: [String!]
+  previousValues: ShoppingListItemPreviousValues
+}
+
+input ShoppingListItemSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ShoppingListItemWhereInput
+  AND: [ShoppingListItemSubscriptionWhereInput!]
+  OR: [ShoppingListItemSubscriptionWhereInput!]
+  NOT: [ShoppingListItemSubscriptionWhereInput!]
+}
+
+input ShoppingListItemUpdateInput {
+  user: UserUpdateOneRequiredWithoutShoppingListInput
+  ingredient: IngredientUpdateOneRequiredInput
+  quantity: Float
+  unit: UnitUpdateOneRequiredInput
+}
+
+input ShoppingListItemUpdateManyDataInput {
+  quantity: Float
+}
+
+input ShoppingListItemUpdateManyMutationInput {
+  quantity: Float
+}
+
+input ShoppingListItemUpdateManyWithoutUserInput {
+  create: [ShoppingListItemCreateWithoutUserInput!]
+  delete: [ShoppingListItemWhereUniqueInput!]
+  connect: [ShoppingListItemWhereUniqueInput!]
+  set: [ShoppingListItemWhereUniqueInput!]
+  disconnect: [ShoppingListItemWhereUniqueInput!]
+  update: [ShoppingListItemUpdateWithWhereUniqueWithoutUserInput!]
+  upsert: [ShoppingListItemUpsertWithWhereUniqueWithoutUserInput!]
+  deleteMany: [ShoppingListItemScalarWhereInput!]
+  updateMany: [ShoppingListItemUpdateManyWithWhereNestedInput!]
+}
+
+input ShoppingListItemUpdateManyWithWhereNestedInput {
+  where: ShoppingListItemScalarWhereInput!
+  data: ShoppingListItemUpdateManyDataInput!
+}
+
+input ShoppingListItemUpdateWithoutUserDataInput {
+  ingredient: IngredientUpdateOneRequiredInput
+  quantity: Float
+  unit: UnitUpdateOneRequiredInput
+}
+
+input ShoppingListItemUpdateWithWhereUniqueWithoutUserInput {
+  where: ShoppingListItemWhereUniqueInput!
+  data: ShoppingListItemUpdateWithoutUserDataInput!
+}
+
+input ShoppingListItemUpsertWithWhereUniqueWithoutUserInput {
+  where: ShoppingListItemWhereUniqueInput!
+  update: ShoppingListItemUpdateWithoutUserDataInput!
+  create: ShoppingListItemCreateWithoutUserInput!
+}
+
+input ShoppingListItemWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  user: UserWhereInput
+  ingredient: IngredientWhereInput
+  quantity: Float
+  quantity_not: Float
+  quantity_in: [Float!]
+  quantity_not_in: [Float!]
+  quantity_lt: Float
+  quantity_lte: Float
+  quantity_gt: Float
+  quantity_gte: Float
+  unit: UnitWhereInput
+  AND: [ShoppingListItemWhereInput!]
+  OR: [ShoppingListItemWhereInput!]
+  NOT: [ShoppingListItemWhereInput!]
+}
+
+input ShoppingListItemWhereUniqueInput {
+  id: ID
+}
+
+type Subscription {
+  ingredient(where: IngredientSubscriptionWhereInput): IngredientSubscriptionPayload
+  recipe(where: RecipeSubscriptionWhereInput): RecipeSubscriptionPayload
+  selectedRecipe(where: SelectedRecipeSubscriptionWhereInput): SelectedRecipeSubscriptionPayload
+  shoppingListItem(where: ShoppingListItemSubscriptionWhereInput): ShoppingListItemSubscriptionPayload
+  tag(where: TagSubscriptionWhereInput): TagSubscriptionPayload
+  unit(where: UnitSubscriptionWhereInput): UnitSubscriptionPayload
+  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+}
+
+type Tag {
+  id: ID!
+  name: String!
+}
+
+type TagConnection {
+  pageInfo: PageInfo!
+  edges: [TagEdge]!
+  aggregate: AggregateTag!
+}
+
+input TagCreateInput {
+  id: ID
+  name: String!
+}
+
+input TagCreateManyInput {
+  create: [TagCreateInput!]
+  connect: [TagWhereUniqueInput!]
+}
+
+type TagEdge {
+  node: Tag!
+  cursor: String!
+}
+
+enum TagOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+}
+
+type TagPreviousValues {
+  id: ID!
+  name: String!
+}
+
+input TagScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  AND: [TagScalarWhereInput!]
+  OR: [TagScalarWhereInput!]
+  NOT: [TagScalarWhereInput!]
+}
+
+type TagSubscriptionPayload {
+  mutation: MutationType!
+  node: Tag
+  updatedFields: [String!]
+  previousValues: TagPreviousValues
+}
+
+input TagSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: TagWhereInput
+  AND: [TagSubscriptionWhereInput!]
+  OR: [TagSubscriptionWhereInput!]
+  NOT: [TagSubscriptionWhereInput!]
+}
+
+input TagUpdateDataInput {
+  name: String
+}
+
+input TagUpdateInput {
+  name: String
+}
+
+input TagUpdateManyDataInput {
+  name: String
+}
+
+input TagUpdateManyInput {
+  create: [TagCreateInput!]
+  update: [TagUpdateWithWhereUniqueNestedInput!]
+  upsert: [TagUpsertWithWhereUniqueNestedInput!]
+  delete: [TagWhereUniqueInput!]
+  connect: [TagWhereUniqueInput!]
+  set: [TagWhereUniqueInput!]
+  disconnect: [TagWhereUniqueInput!]
+  deleteMany: [TagScalarWhereInput!]
+  updateMany: [TagUpdateManyWithWhereNestedInput!]
+}
+
+input TagUpdateManyMutationInput {
+  name: String
+}
+
+input TagUpdateManyWithWhereNestedInput {
+  where: TagScalarWhereInput!
+  data: TagUpdateManyDataInput!
+}
+
+input TagUpdateWithWhereUniqueNestedInput {
+  where: TagWhereUniqueInput!
+  data: TagUpdateDataInput!
+}
+
+input TagUpsertWithWhereUniqueNestedInput {
+  where: TagWhereUniqueInput!
+  update: TagUpdateDataInput!
+  create: TagCreateInput!
+}
+
+input TagWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  AND: [TagWhereInput!]
+  OR: [TagWhereInput!]
+  NOT: [TagWhereInput!]
+}
+
+input TagWhereUniqueInput {
+  id: ID
+  name: String
+}
+
+type Unit {
+  id: ID!
+  name: String!
+  abbreviation: String!
+}
+
+type UnitConnection {
+  pageInfo: PageInfo!
+  edges: [UnitEdge]!
+  aggregate: AggregateUnit!
+}
+
+input UnitCreateInput {
+  id: ID
+  name: String!
+  abbreviation: String!
+}
+
+input UnitCreateOneInput {
+  create: UnitCreateInput
+  connect: UnitWhereUniqueInput
+}
+
+type UnitEdge {
+  node: Unit!
+  cursor: String!
+}
+
+enum UnitOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  abbreviation_ASC
+  abbreviation_DESC
+}
+
+type UnitPreviousValues {
+  id: ID!
+  name: String!
+  abbreviation: String!
+}
+
+type UnitSubscriptionPayload {
+  mutation: MutationType!
+  node: Unit
+  updatedFields: [String!]
+  previousValues: UnitPreviousValues
+}
+
+input UnitSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: UnitWhereInput
+  AND: [UnitSubscriptionWhereInput!]
+  OR: [UnitSubscriptionWhereInput!]
+  NOT: [UnitSubscriptionWhereInput!]
+}
+
+input UnitUpdateDataInput {
+  name: String
+  abbreviation: String
+}
+
+input UnitUpdateInput {
+  name: String
+  abbreviation: String
+}
+
+input UnitUpdateManyMutationInput {
+  name: String
+  abbreviation: String
+}
+
+input UnitUpdateOneRequiredInput {
+  create: UnitCreateInput
+  update: UnitUpdateDataInput
+  upsert: UnitUpsertNestedInput
+  connect: UnitWhereUniqueInput
+}
+
+input UnitUpsertNestedInput {
+  update: UnitUpdateDataInput!
+  create: UnitCreateInput!
+}
+
+input UnitWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  abbreviation: String
+  abbreviation_not: String
+  abbreviation_in: [String!]
+  abbreviation_not_in: [String!]
+  abbreviation_lt: String
+  abbreviation_lte: String
+  abbreviation_gt: String
+  abbreviation_gte: String
+  abbreviation_contains: String
+  abbreviation_not_contains: String
+  abbreviation_starts_with: String
+  abbreviation_not_starts_with: String
+  abbreviation_ends_with: String
+  abbreviation_not_ends_with: String
+  AND: [UnitWhereInput!]
+  OR: [UnitWhereInput!]
+  NOT: [UnitWhereInput!]
+}
+
+input UnitWhereUniqueInput {
+  id: ID
+  name: String
+  abbreviation: String
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission!]!
+  shoppingList(where: ShoppingListItemWhereInput, orderBy: ShoppingListItemOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ShoppingListItem!]
+  selectedRecipes(where: SelectedRecipeWhereInput, orderBy: SelectedRecipeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [SelectedRecipe!]
+}
+
+type UserConnection {
+  pageInfo: PageInfo!
+  edges: [UserEdge]!
+  aggregate: AggregateUser!
+}
+
+input UserCreateInput {
+  id: ID
+  name: String!
+  email: String!
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserCreatepermissionsInput
+  shoppingList: ShoppingListItemCreateManyWithoutUserInput
+  selectedRecipes: SelectedRecipeCreateManyWithoutUserInput
+}
+
+input UserCreateOneWithoutSelectedRecipesInput {
+  create: UserCreateWithoutSelectedRecipesInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateOneWithoutShoppingListInput {
+  create: UserCreateWithoutShoppingListInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreatepermissionsInput {
+  set: [Permission!]
+}
+
+input UserCreateWithoutSelectedRecipesInput {
+  id: ID
+  name: String!
+  email: String!
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserCreatepermissionsInput
+  shoppingList: ShoppingListItemCreateManyWithoutUserInput
+}
+
+input UserCreateWithoutShoppingListInput {
+  id: ID
+  name: String!
+  email: String!
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserCreatepermissionsInput
+  selectedRecipes: SelectedRecipeCreateManyWithoutUserInput
+}
+
+type UserEdge {
+  node: User!
+  cursor: String!
+}
+
+enum UserOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  email_ASC
+  email_DESC
+  password_ASC
+  password_DESC
+  resetToken_ASC
+  resetToken_DESC
+  resetTokenExpiry_ASC
+  resetTokenExpiry_DESC
+}
+
+type UserPreviousValues {
+  id: ID!
+  name: String!
+  email: String!
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission!]!
+}
+
+type UserSubscriptionPayload {
+  mutation: MutationType!
+  node: User
+  updatedFields: [String!]
+  previousValues: UserPreviousValues
+}
+
+input UserSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: UserWhereInput
+  AND: [UserSubscriptionWhereInput!]
+  OR: [UserSubscriptionWhereInput!]
+  NOT: [UserSubscriptionWhereInput!]
+}
+
+input UserUpdateInput {
+  name: String
+  email: String
+  password: String
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserUpdatepermissionsInput
+  shoppingList: ShoppingListItemUpdateManyWithoutUserInput
+  selectedRecipes: SelectedRecipeUpdateManyWithoutUserInput
+}
+
+input UserUpdateManyMutationInput {
+  name: String
+  email: String
+  password: String
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserUpdatepermissionsInput
+}
+
+input UserUpdateOneRequiredWithoutSelectedRecipesInput {
+  create: UserCreateWithoutSelectedRecipesInput
+  update: UserUpdateWithoutSelectedRecipesDataInput
+  upsert: UserUpsertWithoutSelectedRecipesInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateOneRequiredWithoutShoppingListInput {
+  create: UserCreateWithoutShoppingListInput
+  update: UserUpdateWithoutShoppingListDataInput
+  upsert: UserUpsertWithoutShoppingListInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdatepermissionsInput {
+  set: [Permission!]
+}
+
+input UserUpdateWithoutSelectedRecipesDataInput {
+  name: String
+  email: String
+  password: String
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserUpdatepermissionsInput
+  shoppingList: ShoppingListItemUpdateManyWithoutUserInput
+}
+
+input UserUpdateWithoutShoppingListDataInput {
+  name: String
+  email: String
+  password: String
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: UserUpdatepermissionsInput
+  selectedRecipes: SelectedRecipeUpdateManyWithoutUserInput
+}
+
+input UserUpsertWithoutSelectedRecipesInput {
+  update: UserUpdateWithoutSelectedRecipesDataInput!
+  create: UserCreateWithoutSelectedRecipesInput!
+}
+
+input UserUpsertWithoutShoppingListInput {
+  update: UserUpdateWithoutShoppingListDataInput!
+  create: UserCreateWithoutShoppingListInput!
+}
+
+input UserWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
+  resetToken: String
+  resetToken_not: String
+  resetToken_in: [String!]
+  resetToken_not_in: [String!]
+  resetToken_lt: String
+  resetToken_lte: String
+  resetToken_gt: String
+  resetToken_gte: String
+  resetToken_contains: String
+  resetToken_not_contains: String
+  resetToken_starts_with: String
+  resetToken_not_starts_with: String
+  resetToken_ends_with: String
+  resetToken_not_ends_with: String
+  resetTokenExpiry: Float
+  resetTokenExpiry_not: Float
+  resetTokenExpiry_in: [Float!]
+  resetTokenExpiry_not_in: [Float!]
+  resetTokenExpiry_lt: Float
+  resetTokenExpiry_lte: Float
+  resetTokenExpiry_gt: Float
+  resetTokenExpiry_gte: Float
+  shoppingList_every: ShoppingListItemWhereInput
+  shoppingList_some: ShoppingListItemWhereInput
+  shoppingList_none: ShoppingListItemWhereInput
+  selectedRecipes_every: SelectedRecipeWhereInput
+  selectedRecipes_some: SelectedRecipeWhereInput
+  selectedRecipes_none: SelectedRecipeWhereInput
+  AND: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+}
+
+input UserWhereUniqueInput {
+  id: ID
+}
