@@ -5,7 +5,8 @@ enum Permission {
 
 type User {
   id: ID! @id
-  name: String!
+  firstName: String!
+  lastName: String!
   email: String!
   password: String!
   resetToken: String
